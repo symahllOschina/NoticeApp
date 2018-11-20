@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.wanding.notice">
+
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <!-- To auto-complete the email text field in the login form with the user's emails -->
+    <uses-permission android:name="android.permission.GET_ACCOUNTS" />
+    <uses-permission android:name="android.permission.READ_PROFILE" />
+    <uses-permission android:name="android.permission.READ_CONTACTS" />
+
+    <!-- 个推3.0提供的电子围栏功能所需权限 （这里按集成文档配置上，应用中用不到，可以忽略）-->
+    <!-- iBeancon功能所需权限 -->;
+    <uses-permission android:name="android.permission.BLUETOOTH"/>
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN"/>
+    <!-- 个推3.0电子围栏功能所需权限 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <application
+        android:name=".application.BaseApplication"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <!-- 圆形头像设置(实现相机、相册选择并裁剪)兼容Android 7.0/6.0  -->
+        <!-- android:name="android.support.v4.content.FileProvider"  -->
+        <!-- android:authorities="" //路径 前面为包名，后面为fileprovider固定值，使用包名便于区分 -->
+        <!--   android:exported="false" //是否支持其它应用调用当前组件 ，要求为flase-->
+        <!-- android:grantUriPermissions="true"  -->
+        <!-- android:name="android.support.FILE_PROVIDER_PATHS" //固定值 -->
+        <!-- android:resource="@xml/file_paths" //在res目录下定义的filepaths.xml文件，名字可以自定义 -->
+        <!--  -->
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="com.lele.avatarcircledemo.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+        <meta-data
+            android:name="android.support.FILE_PROVIDER_PATHS"
+            android:resource="@xml/file_paths"
+            />
+
+        </provider>
+
+        <!-- 个推配置第六步（注册服务）  -->
+        <service
+            android:name=".getui.PushNoticeService"
+            android:exported="true"
+            android:label="PushService"
+            android:process=":pushservice"
+            ></service>
+        <service
+            android:name=".getui.PushNoticeIntentService"
+            />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:configChanges="orientation|mcc|mnc|keyboard|keyboardHidden|locale|touchscreen|navigation|fontScale"
+            android:label="@string/app_name"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"
+            android:launchMode="standard"
+            android:theme="@style/StartAppTheme"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <!-- Login界面
+        <activity
+            android:name=".activity.LoginActivity"
+            android:configChanges="orientation|mcc|mnc|keyboard|keyboardHidden|locale|touchscreen|navigation|fontScale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"
+            android:launchMode="standard"
+            android:theme="@style/StartAppTheme"
+            ></activity>
+            -->
+        <!-- Main主界面 -->
+        <activity
+            android:name=".activity.MainActivity"
+            android:configChanges="orientation|mcc|mnc|keyboard|keyboardHidden|locale|touchscreen|navigation|fontScale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"
+            android:launchMode="standard"
+            ></activity>
+        <!-- Main主界面上的筛选界面 -->
+        <activity
+            android:name=".activity.ScreetActivity"
+            android:configChanges="orientation|mcc|mnc|keyboard|keyboardHidden|locale|touchscreen|navigation|fontScale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"
+            android:launchMode="standard"
+            ></activity>
+        <!-- Main主界面上的筛选界面 -->
+        <activity
+            android:name=".activity.HistoryScreetActivity"
+            android:configChanges="orientation|mcc|mnc|keyboard|keyboardHidden|locale|touchscreen|navigation|fontScale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"
+            android:launchMode="standard"
+            ></activity>
+        <!-- Main主界面上的搜索界面 -->
+        <activity
+            android:name=".activity.SearchUserActivity"
+            android:configChanges="orientation|mcc|mnc|keyboard|keyboardHidden|locale|touchscreen|navigation|fontScale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"
+            android:launchMode="standard"
+            ></activity>
+        <!-- 订单详情界面 -->
+        <activity
+            android:name=".activity.OrderDetailsActivity"
+            android:configChanges="orientation|mcc|mnc|keyboard|keyboardHidden|locale|touchscreen|navigation|fontScale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"
+            android:launchMode="standard"
+            ></activity>
+        <!-- 退款界面 -->
+        <activity
+            android:name=".activity.RefundActivity"
+            android:configChanges="orientation|mcc|mnc|keyboard|keyboardHidden|locale|touchscreen|navigation|fontScale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"
+            android:launchMode="standard"
+            ></activity>
+        <!-- Setting界面 -->
+        <activity
+            android:name=".activity.SettingActivity"
+            android:configChanges="orientation|mcc|mnc|keyboard|keyboardHidden|locale|touchscreen|navigation|fontScale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"
+            android:launchMode="standard"
+            ></activity>
+        <!-- 商户信息界面 -->
+        <activity
+            android:name=".activity.BusInfoActivity"
+            android:configChanges="orientation|mcc|mnc|keyboard|keyboardHidden|locale|touchscreen|navigation|fontScale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"
+            android:launchMode="standard"
+            ></activity>
+        <!-- voiceSetting语音播报设置界面  -->
+        <activity
+            android:name=".activity.VoiceSettingActivity"
+            android:configChanges="orientation|mcc|mnc|keyboard|keyboardHidden|locale|touchscreen|navigation|fontScale"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustPan"
+            android:launchMode="standard"
+            ></activity>
+
+    </application>
+
+</manifest>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="15dp"
+    >
+    <TextView
+        android:id="@+id/search_user_item_tvName"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="邪恶的昵称大学四年"
+        android:textSize="@dimen/text_size14"
+        android:textColor="@color/black_333"
+        android:background="@color/white_ffffff"
+        android:gravity="center_vertical"
+        />
+
+</LinearLayout>

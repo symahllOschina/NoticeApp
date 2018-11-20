@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <include
+        android:id="@+id/query_statis_bar_layout"
+        layout="@layout/query_statis_bar"
+        ></include>
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:id="@+id/query_sameday_update_swipeRefreshLayout"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        >
+        <ListView
+            android:id="@+id/query_sameday_update_listView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:divider="#cccccc"
+            android:dividerHeight="1px"
+            ></ListView>
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>

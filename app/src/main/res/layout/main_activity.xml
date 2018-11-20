@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+    <com.wanding.notice.view.ControlScrollViewPager
+        android:id="@+id/main_activity_mViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        >
+    </com.wanding.notice.view.ControlScrollViewPager>
+    <include
+        android:id="@+id/main_buttom_tabLayout"
+        layout="@layout/main_buttom_tab_activity"
+        />
+</LinearLayout>

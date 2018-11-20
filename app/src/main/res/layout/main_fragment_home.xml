@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:background="@color/white_f3f7fd"
+    >
+    <!-- popupWindow显示坐标 -->
+    <View
+        android:id="@+id/main_fragment_home_topView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        />
+
+    <include layout="@layout/main_header_layout"></include>
+    <include layout="@layout/query_statis_tab"></include>
+    <com.wanding.notice.view.ControlScrollViewPager
+        android:id="@+id/main_fragment_home_mViewPager"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:layout_marginTop="5dp"
+        ></com.wanding.notice.view.ControlScrollViewPager>
+
+</LinearLayout>

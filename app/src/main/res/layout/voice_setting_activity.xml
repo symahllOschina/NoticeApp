@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white_f2f2f2"
+    >
+
+    <include layout="@layout/header_layout"></include>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white_ffffff"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:visibility="visible"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="是否播报"
+            android:textSize="@dimen/text_size16"
+            android:textColor="@color/grey_666666"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="15dp"
+            />
+        <!-- Switch常用属性：
+                textOn：控件打开时显示的文字
+                textOff：控件关闭时显示的文字
+                thumb：控件开关的图片
+                track：控件开关的轨迹图片
+                typeface：设置字体类型
+                switchMinWidth：开关最小宽度
+                switchPadding：设置开关 与文字的空白距离
+                switchTextAppearance：设置文本的风格
+                checked：设置初始选中状态
+                splitTrack：是否设置一个间隙，让滑块与底部图片分隔（API 21及以上）
+                showText：设置是否显示开关上的文字（API 21及以上） -->
+        <Switch
+            android:id="@+id/voice_setting_voiceSwitch"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:switchMinWidth="20dp"
+            android:textOn="on"
+            android:textOff="off"
+            android:thumb="@drawable/thumb"
+            android:track="@drawable/track"
+            android:layout_alignParentRight="true"
+            android:paddingLeft="15dp"
+            android:paddingRight="15dp"
+            android:layout_centerVertical="true"
+            />
+    </RelativeLayout>
+    <RelativeLayout
+        android:id="@+id/voice_setting_layoutClientId"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="@color/white_ffffff"
+        android:paddingLeft="15dp"
+        android:paddingRight="15dp"
+        >
+        <TextView
+            android:id="@+id/voice_setting_tvClientIdTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ClientId："
+            android:textSize="@dimen/text_size14"
+            android:textColor="@color/black_333"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            />
+        <TextView
+            android:id="@+id/voice_setting_tvClientId"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="@dimen/text_siz12"
+            android:textColor="@color/black_333"
+            android:gravity="right"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/voice_setting_tvClientIdTitle"
+            android:singleLine="true"
+            android:ellipsize="end"
+            android:minLines="1"
+            android:layout_marginLeft="10dp"
+            />
+    </RelativeLayout>
+</LinearLayout>
